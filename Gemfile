@@ -1,6 +1,10 @@
-source 'https://rubygems.org'
+# frozen_string_literal: true
 
-# ruby '2.6.6'
-gem 'typhoeus', "~> 1.4.0"
-gem 'pry-byebug', "~> 3.9.0"
-gem 'plissken'
+source "https://rubygems.org"
+
+# Specify your gem's dependencies in buildium.gemspec
+gemspec
+
+gem "rake", "~> 13.0"
+
+gem "rubocop", "~> 1.7"
