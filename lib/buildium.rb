@@ -12,6 +12,8 @@ require_relative 'buildium/buildium_result'
 require_relative 'buildium/buildium_result_set'
 
 require_relative 'buildium/base'
+require_relative 'buildium/general_ledger_account'
+require_relative 'buildium/general_ledger_transaction'
 require_relative 'buildium/owner'
 require_relative 'buildium/rental_property'
 

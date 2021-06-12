@@ -1,19 +1,21 @@
 module Buildium
   class Base
+    SUCCESS_CODES = [200, 201].freeze
+
     class << self
       def create(params)
       end
 
       def find(id, params = {})
         response = process_request(:get, [path, id].join('/'), params)
-        return Buildium::BuildiumResult.new(response) if [200, 201].include?(response.response_code)
+        return Buildium::BuildiumResult.new(response) if SUCCESS_CODES.include?(response.response_code)
 
         Buildium::BuildiumError.new(response)
       end
 
       def list(params = {})
         response = process_request(:get, path, params)
-        return Buildium::BuildiumResultSet.new(response) if [200, 201].include?(response.response_code)
+        return Buildium::BuildiumResultSet.new(response) if SUCCESS_CODES.include?(response.response_code)
 
         Buildium::BuildiumError.new(response)
       end
