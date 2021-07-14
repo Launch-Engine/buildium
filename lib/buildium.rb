@@ -16,6 +16,7 @@ require_relative 'buildium/general_ledger_account'
 require_relative 'buildium/general_ledger_transaction'
 require_relative 'buildium/owner'
 require_relative 'buildium/rental_property'
+require_relative 'buildium/rental_property_unit'
 
 
 # module Buildium
