@@ -19,8 +19,9 @@ end
 # properties = Buildium::RentalProperty.list(limit: 5)
 # transactions = Buildium::GeneralLedgerTransaction.list(startdate: '2021-01-01', enddate: '2021-06-11', glaccountids: 11)
 # property_units = Buildium::RentalPropertyUnit.list(limit: 1000, propertyids: '9115,9116')
+# leases = Buildium::Lease.list(limit: 5, propertyids: '9115')
 
-leases = Buildium::Lease.list(limit: 5, propertyids: '9115')
+balances = Buildium::Balance.list(limit: 5, entityid: 973917, entitytype: 'RentalOwner', accountingbasis: 'Cash', asofdate: '2021-08-16')
 
 binding.pry
 
