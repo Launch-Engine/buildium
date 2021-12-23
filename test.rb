@@ -22,7 +22,7 @@ end
 
 # leases = Buildium::Lease.list(limit: 5, propertyids: '140421')
 # leases_balances = Buildium::LeaseBalances.list(leaseids: '507843')
-leases_balances = Buildium::LeaseBalances.list(leaseids: '507843') # .data.first[:total_balance]
+leases_balances = Buildium::LeaseBalance.list(leaseids: '507843') # .data.first[:total_balance]
 
 # balances = Buildium::Balance.list(limit: 5, entityid: 973917, entitytype: 'RentalOwner', accountingbasis: 'Cash', asofdate: '2021-08-16')
 

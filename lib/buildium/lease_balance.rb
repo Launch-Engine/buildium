@@ -1,5 +1,5 @@
 module Buildium
-  class LeaseBalances < Buildium::Base
+  class LeaseBalance < Buildium::Base
     def self.path
       'leases/outstandingbalances'
     end
