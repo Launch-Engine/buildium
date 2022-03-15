@@ -21,6 +21,13 @@ module Buildium
         Buildium::BuildiumError.new(response)
       end
 
+      def test(auth_params)
+        response = process_request(:get, test_path, auth_params.merge(limit: 1))
+        return true if SUCCESS_CODES.include?(response.response_code)
+
+        Buildium::BuildiumError.new(response)
+      end
+
       def update(params)
       end
 
