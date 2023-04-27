@@ -18,21 +18,32 @@ auth = {
 
 # properties = Buildium::RentalProperty.list
 # owners = Buildium::Owner.list(limit: 3)
-# owner = Buildium::Owner.find(33673)
+# owner = Buildium::Owner.find(1154939, auth)
 
 # accounts = Buildium::GeneralLedgerAccount.list(limit: 1000)
 
 # properties = Buildium::RentalProperty.list(limit: 5)
 # transactions = Buildium::GeneralLedgerTransaction.list(startdate: '2021-01-01', enddate: '2021-06-11', glaccountids: 11)
-# property_units = Buildium::RentalPropertyUnit.list(limit: 1000, propertyids: '9115,9116')
+# property_units = Buildium::RentalPropertyUnit.list(limit: 1000, propertyids: '153225')
 
 # leases = Buildium::Lease.list(auth.merge(limit: 5, propertyids: '140421'))
 # leases_balances = Buildium::LeaseBalances.list(leaseids: '507843')
 # leases_balances = Buildium::LeaseBalance.list(leaseids: '507843') # .data.first[:total_balance]
 
-# balances = Buildium::Balance.list(limit: 5, entityid: 973917, entitytype: 'RentalOwner', accountingbasis: 'Cash', asofdate: '2021-08-16')
+balances = Buildium::Balance.list(auth.merge(entityid: 1154939, entitytype: 'RentalOwner', accountingbasis: 'Accrual', asofdate: '2023-04-18'))
+binding.pry
 
-retval = Buildium::Connection.test(auth)
+# balances = Buildium::Balance.list(auth.merge(entityid: 33673, entitytype: 'RentalOwner', accountingbasis: 'Cash', asofdate: '2023-04-18'))
+
+
+# retval = Buildium::Connection.test(auth)
+
+# 1 Carriage House Lane
+# transactions = Buildium::GeneralLedgerTransaction.list(auth.merge(selectionentityid: '151194',selectionentitytype: 'Rental', startdate: '2021-01-01', enddate: '2021-06-11', glaccountids: 11))
+
+# association_balances = Buildium::AssociationOwnershipAccountBalance.list(auth.merge(limit: 5))
+
+# accounts = Buildium::GeneralLedgerAccount.list(as_limit: 10)
 
 binding.pry
 
