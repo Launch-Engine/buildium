@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   spec.add_dependency 'typhoeus', '~> 1.4.0'
-  spec.add_dependency 'plissken', '~> 1.4.1'
+  spec.add_dependency 'plissken', '~> 2.0.1'
 
   # For more information and examples about making a new gem, checkout our
   # guide at: https://bundler.io/guides/creating_gem.html
