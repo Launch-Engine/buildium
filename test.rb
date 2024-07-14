@@ -28,7 +28,11 @@ auth = {
 
 # accounts = Buildium::GeneralLedgerAccount.list(auth.merge(limit: 1000))
 
-vendors = Buildium::Vendor.list(auth.merge(limit: 1000))
+# vendors = Buildium::Vendor.list(auth.merge(limit: 1000))
+
+# user_roles = Buildium::UserRole.list(auth.merge(limit: 100))
+
+users = Buildium::User.list(auth.merge(limit: 100))
 
 binding.pry
 asdf=3

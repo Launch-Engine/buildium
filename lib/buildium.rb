@@ -22,6 +22,8 @@ require_relative 'buildium/lease_balance'
 require_relative 'buildium/owner'
 require_relative 'buildium/rental_property'
 require_relative 'buildium/rental_property_unit'
+require_relative 'buildium/user'
+require_relative 'buildium/user_role'
 require_relative 'buildium/vendor'
 
 require_relative 'buildium/association_ownership_account_balance'
