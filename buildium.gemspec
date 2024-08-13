@@ -8,19 +8,19 @@ Gem::Specification.new do |spec|
   spec.name          = 'buildium'
   spec.version       = Buildium::VERSION
   spec.authors       = ['Wes Hays']
-  spec.email         = ['wes@benefitmany.com']
+  spec.email         = ['weshays@gmail.com']
 
   spec.summary       = 'API wrapper for the Buildium API'
   spec.description   = 'API wrapper for the Buildium API'
-  spec.homepage      = 'https://github.com/BenefitMany/buildium'
+  spec.homepage      = 'https://github.com/Launch-Engine/buildium'
   spec.license       = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.4.0')
 
   spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/BenefitMany/buildium'
-  spec.metadata['changelog_uri'] = 'https://github.com/BenefitMany/buildium'
+  spec.metadata['source_code_uri'] = 'https://github.com/Launch-Engine/buildium'
+  spec.metadata['changelog_uri'] = 'https://github.com/Launch-Engine/buildium'
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
