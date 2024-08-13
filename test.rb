@@ -32,10 +32,7 @@ auth = {
 
 # user_roles = Buildium::UserRole.list(auth.merge(limit: 100))
 
-users = Buildium::User.list(auth.merge(limit: 100))
-
-binding.pry
-asdf=3
+# users = Buildium::User.list(auth.merge(limit: 100))
 
 # properties = Buildium::RentalProperty.list(limit: 5)
 # transactions = Buildium::GeneralLedgerTransaction.list(startdate: '2021-01-01', enddate: '2021-06-11', glaccountids: 11)
@@ -44,6 +41,11 @@ asdf=3
 # leases = Buildium::Lease.list(auth.merge(limit: 5, propertyids: '140421'))
 # leases_balances = Buildium::LeaseBalances.list(leaseids: '507843')
 # leases_balances = Buildium::LeaseBalance.list(leaseids: '507843') # .data.first[:total_balance]
+
+notes = Buildium::LeaseNote.list(auth.merge(lease_id: '507843'))
+
+binding.pry
+asdf=3
 
 # balances = Buildium::Balance.list(auth.merge(entityid: 1154939, entitytype: 'RentalOwner', accountingbasis: 'Accrual', asofdate: '2023-04-18'))
 # binding.pry

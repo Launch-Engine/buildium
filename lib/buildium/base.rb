@@ -43,9 +43,10 @@ module Buildium
 
       def process_request(request_type, url_path, params)
         auth = extract_auth(params)
+        processed_url_path = url_path.gsub(/{(.*?)}/) { params.delete($1.to_sym) }
 
         @data = Typhoeus::Request.new(
-          "https://#{auth[:buildium_env]}.buildium.com/v1/#{url_path}",
+          "https://#{auth[:buildium_env]}.buildium.com/v1/#{processed_url_path}",
           method: request_type,
           params: params,
           headers: {
