@@ -3,6 +3,7 @@ require 'json'
 require 'typhoeus'
 require 'plissken'
 require './lib/buildium'
+require './test_sync'
 
 # Buildium.configure do |config|
 #   config.client_id = ENV['BUILDIUM_CLIENT_ID']
@@ -10,17 +11,17 @@ require './lib/buildium'
 #   config.production = true # ENV['BUILDIUM_PRODUCTION_MODE']
 # end
 
-auth = {
-  buildium_client_id: ENV['BUILDIUM_CLIENT_ID'],
-  buildium_client_secret: ENV['BUILDIUM_CLIENT_SECRET'],
-  buildium_env: 'api' # 'api' or 'apisandbox'
-}
-
 # auth = {
-#   buildium_client_id: '1cc89101-3f9b-4d76-a48a-a4224c7025dd',
-#   buildium_client_secret: 'Lv3dWHyOzeHDwxZQl70M2Qz438uhVmserLMEejvDzrs=',
+#   buildium_client_id: ENV['BUILDIUM_CLIENT_ID'],
+#   buildium_client_secret: ENV['BUILDIUM_CLIENT_SECRET'],
 #   buildium_env: 'api' # 'api' or 'apisandbox'
 # }
+
+# TestSync.process(auth)
+
+account_info = Buildium::AdministrationAccount.list(auth)
+binding.pry
+asdf=3
 
 # properties = Buildium::RentalProperty.list
 # owners = Buildium::Owner.list(limit: 3)
@@ -39,13 +40,20 @@ auth = {
 # property_units = Buildium::RentalPropertyUnit.list(auth.merge(limit: 1000, propertyids: '21740,29079,29088,29093,29094'))
 
 # leases = Buildium::Lease.list(auth.merge(limit: 5, propertyids: '140421'))
-# leases_balances = Buildium::LeaseBalances.list(leaseids: '507843')
-# leases_balances = Buildium::LeaseBalance.list(leaseids: '507843') # .data.first[:total_balance]
+# leases_balance = Buildium::LeaseBalance.list(auth.merge(leaseids: '507843'))
+# leases_balance = Buildium::LeaseBalance.list(leaseids: '507843') # .data.first[:total_balance]
 
-notes = Buildium::LeaseNote.list(auth.merge(lease_id: '507843'))
+# notes = Buildium::LeaseNote.list(auth.merge(lease_id: '507843'))
 
-binding.pry
-asdf=3
+# results = Buildium::LeaseBalance.list(
+#   auth.merge(
+#     limit: 100,
+#     offset: offset,
+#     leaseids: lease_ids_batch.join(',')
+#   )
+# )
+
+# results = Buildium::LeaseBalance.list(auth.merge(limit: 100, offset: offset, leaseids: lease_ids_batch.join(',')))
 
 # balances = Buildium::Balance.list(auth.merge(entityid: 1154939, entitytype: 'RentalOwner', accountingbasis: 'Accrual', asofdate: '2023-04-18'))
 # binding.pry
