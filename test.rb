@@ -17,9 +17,16 @@ require './test_sync'
 #   buildium_env: 'api' # 'api' or 'apisandbox'
 # }
 
+# lease_transactions = Buildium::LeaseTransactions.list(auth.merge(lease_id: lease_id))
+lease_transaction = Buildium::LeaseTransactions.find(69234675, auth.merge(lease_id: lease_id))
+
+leases_balance = Buildium::LeaseBalance.list(auth.merge(leaseids: '507843'))
+
+
+
 # TestSync.process(auth)
 
-account_info = Buildium::AdministrationAccount.list(auth)
+# account_info = Buildium::AdministrationAccount.list(auth)
 binding.pry
 asdf=3
 
