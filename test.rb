@@ -11,22 +11,24 @@ require './test_sync'
 #   config.production = true # ENV['BUILDIUM_PRODUCTION_MODE']
 # end
 
-# auth = {
-#   buildium_client_id: ENV['BUILDIUM_CLIENT_ID'],
-#   buildium_client_secret: ENV['BUILDIUM_CLIENT_SECRET'],
-#   buildium_env: 'api' # 'api' or 'apisandbox'
-# }
+auth = {
+  buildium_client_id: ENV['BUILDIUM_CLIENT_ID'],
+  buildium_client_secret: ENV['BUILDIUM_CLIENT_SECRET'],
+  buildium_env: 'api' # 'api' or 'apisandbox'
+}
 
 # lease_transactions = Buildium::LeaseTransactions.list(auth.merge(lease_id: lease_id))
-lease_transaction = Buildium::LeaseTransactions.find(69234675, auth.merge(lease_id: lease_id))
+# lease_transaction = Buildium::LeaseTransactions.find(69234675, auth.merge(lease_id: lease_id))
 
-leases_balance = Buildium::LeaseBalance.list(auth.merge(leaseids: '507843'))
-
+# leases_balance = Buildium::LeaseBalance.list(auth.merge(leaseids: '507843'))
 
 
 # TestSync.process(auth)
 
 # account_info = Buildium::AdministrationAccount.list(auth)
+
+epay_settings = Buildium::EpaySetting.list(auth.merge(lease_id: '507843'))
+
 binding.pry
 asdf=3
 
