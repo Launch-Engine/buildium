@@ -28,7 +28,11 @@ module Buildium
         Buildium::BuildiumError.new(response)
       end
 
-      def update(params)
+      def update(json_body, params = {})
+        response = process_request(:put, path, params, body: json_body.to_camel_keys)
+        return Buildium::BuildiumResultSet.new(response) if SUCCESS_CODES.include?(response.response_code)
+
+        Buildium::BuildiumError.new(response)
       end
 
       # -------- Process Methods --------
@@ -41,7 +45,7 @@ module Buildium
         }
       end
 
-      def process_request(request_type, url_path, params)
+      def process_request(request_type, url_path, params, body: nil)
         auth = extract_auth(params)
         processed_url_path = url_path.gsub(/{(.*?)}/) { params.delete($1.to_sym) }
 
@@ -49,9 +53,12 @@ module Buildium
           "https://#{auth[:buildium_env]}.buildium.com/v1/#{processed_url_path}",
           method: request_type,
           params: params,
+          body: body&.to_json,
           headers: {
             'x-buildium-client-id': auth[:buildium_client_id],
-            'x-buildium-client-secret': auth[:buildium_client_secret]
+            'x-buildium-client-secret': auth[:buildium_client_secret],
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
           }
         ).run
       end
