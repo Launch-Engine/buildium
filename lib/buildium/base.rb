@@ -28,6 +28,13 @@ module Buildium
         Buildium::BuildiumError.new(response)
       end
 
+      def create(json_body, params = {})
+        response = process_request(:post, path, params, body: json_body.to_camel_keys)
+        return Buildium::BuildiumResultSet.new(response) if SUCCESS_CODES.include?(response.response_code)
+
+        Buildium::BuildiumError.new(response)
+      end
+
       def update(json_body, params = {})
         response = process_request(:put, path, params, body: json_body.to_camel_keys)
         return Buildium::BuildiumResultSet.new(response) if SUCCESS_CODES.include?(response.response_code)
