@@ -35,8 +35,8 @@ module Buildium
         Buildium::BuildiumError.new(response)
       end
 
-      def update(json_body, params = {})
-        response = process_request(:put, path, params, body: json_body.to_camel_keys)
+      def update(id, json_body, params = {})
+        response = process_request(:put, [path, id].join('/'), params, body: json_body.to_camel_keys)
         return Buildium::BuildiumResultSet.new(response) if SUCCESS_CODES.include?(response.response_code)
 
         Buildium::BuildiumError.new(response)
