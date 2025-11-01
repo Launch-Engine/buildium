@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    buildium (0.9.1)
+    buildium (0.11.0)
       awrence (~> 3.0)
       plissken (~> 3.0)
       typhoeus (~> 1.4)
@@ -65,4 +65,4 @@ DEPENDENCIES
   rubocop (~> 1.7)
 
 BUNDLED WITH
-   2.2.18
+   2.7.1

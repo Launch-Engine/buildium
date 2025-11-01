@@ -13,6 +13,7 @@ require_relative 'buildium/buildium_result'
 require_relative 'buildium/buildium_result_set'
 
 require_relative 'buildium/base'
+require_relative 'buildium/applicant'
 require_relative 'buildium/administration_account'
 require_relative 'buildium/balance'
 require_relative 'buildium/bank_account'
