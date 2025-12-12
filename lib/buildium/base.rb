@@ -1,12 +1,9 @@
 module Buildium
   class Base
-    SUCCESS_CODES = [200, 201].freeze
+    SUCCESS_CODES = [200, 201, 204].freeze
 
     class << self
       # -------- Action Methods --------
-      def create(params)
-      end
-
       def find(id, params = {})
         response = process_request(:get, [path, id].join('/'), params)
         return Buildium::BuildiumResult.new(response) if SUCCESS_CODES.include?(response.response_code)
@@ -56,7 +53,7 @@ module Buildium
         auth = extract_auth(params)
         processed_url_path = url_path.gsub(/{(.*?)}/) { params.delete($1.to_sym) }
 
-        @data = Typhoeus::Request.new(
+        Typhoeus::Request.new(
           "https://#{auth[:buildium_env]}.buildium.com/v1/#{processed_url_path}",
           method: request_type,
           params: params,
