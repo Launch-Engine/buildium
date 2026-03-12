@@ -38,6 +38,7 @@ require_relative 'buildium/task'
 require_relative 'buildium/user'
 require_relative 'buildium/user_role'
 require_relative 'buildium/vendor'
+require_relative 'buildium/work_order'
 
 require_relative 'buildium/association_ownership_account_balance'
 
